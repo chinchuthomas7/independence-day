@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing page</title>
+    
+<link rel="stylesheet" href="../css/style.css">
+<style>
+    body{
+        
+        background: linear-gradient(to right,rgb(219, 11, 46),blue);
+    }
+    h1{
+        color: rgb(255, 254, 253);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    }
+    form{
+        text-align: center;
+        margin-top: 160px;
+        padding: 5px;
+    }
+    .inp{
+        padding: 8px;
+        margin-bottom: 5px;
+        border-radius: 8px;
+        box-shadow: 3px 3px #0e0303;
+        border-color: rgba(220, 20, 60, 0.692);
+    }
+    .btn{
+        border-radius: 8px;
+        margin-top: 8px;
+        max-width: 200px;
+        color: darkblue;
+        box-decoration-break: slice;
+        background:indianred ;
+    }
+    .btn :hover{
+        color: chocolate;
+    }
+   
+</style>
+</head>
+<body >
+    
+    
+<div class="container">
+  <form  id="for"  method="POST"  action='/login' onsubmit="return emailvalidate()">
+    <h1>Lets Go!!</h1>
+  name:  <input  class="inp" type="text" id="name" placeholder="name" autocomplete="off" name="name" required ><br>
+    
+
+  email:  <input  class="inp" type="email" id="email" placeholder="Email" name="email" autocomplete="off" onchange="emailvalidate()" ><br>
+    <p id="error"></p>
+
+    <div class="row">
+        <div class="col">
+            <button class="btn" type="submit">Submit</button>
+            <button class="btn" >Send Email</button>
+        </div>
+    </div>
+    
+    
+  </form>
+<script>
+let email=document.getElementById("email");
+let error=document.getElementById("error");
+
+function emailvalidate(){
+     let regexp1 = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+     if(regexp1.test(email.value)){
+         error.innerHTML="valid";
+         error.style.color="green";
+         return true
+     }
+     else{
+         error.innerHTML="invalid";
+         error.style.color="red";
+         return false;
+     }
+}
+
+
+
+
+</script>
+  
+</body>
+</html>
